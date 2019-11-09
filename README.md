@@ -1,5 +1,5 @@
 ```
-npm install --save
+npm install
 npm run dev
 
 ```
