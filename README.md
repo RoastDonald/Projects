@@ -1,2 +1,5 @@
-1)npm init
-2)npm install --save
+```
+npm install --save
+npm run dev
+
+```
