@@ -1,0 +1,40 @@
+
+<div class="main ui  text container">
+    <div class="ui unstackable items">
+
+        <div class="right floated content">
+
+
+<div class="ui  form  ">
+    <form action="/user/signup" method="post">
+        {{#if hasErrors}}
+            {{#each messages}}
+            <div class="ui negative message">
+                <i class="close icon"></i>
+                <div class="header">
+                    Error
+                </div>
+                <p>
+                    {{this}}
+                </p>
+            </div>
+            {{/each}}
+            {{/if}}
+
+    <div class=" six wide field">
+        <h1>SignUp</h1>
+        <label>E-mail</label>
+        <input type="email" placeholder="joe@schmoe.com" name="login">
+    </div>
+    <div class="six wide field">
+        <label>Password</label>
+        <input type="password" placeholder="password" name="password">
+    </div>
+
+    <input type="hidden" name="_csrf" value="{{{csrfToken}}}">
+    <button class="ui submit button">Submit</button>
+            </form>
+</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<form action="/createPost" class="inverted ui form" method="post">
+    <div class="ui form">
+        <div class="field">
+            Subject
+            <label for="one">Subject</label>
+            <textarea name="subject" rows="1" id="one"></textarea>
+        </div>
+
+        <div class="field">
+            Text
+            <label for="two">Text</label>
+            <textarea name="message" id="two"></textarea>
+        </div>
+        <input type="hidden" name="_csrf" value="{{{csrfToken}}}">
+        <button class="ui button" type="submit">Submit</button>
+    </div>
+</form>
+
+
+

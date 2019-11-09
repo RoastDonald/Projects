@@ -1,0 +1,93 @@
+
+<div class="ui inverted black menu">
+    {{#if auth}}
+
+        <div class="item">
+            <a href="/api/postStorage">
+                <div class="left aligned orange button " style="font-size: 20px">Get favorites</div>
+            </a>
+        </div>
+
+
+        <div class="item">
+        <a href="/user/logout">
+            <div >LogOut</div>
+        </a>
+        </div>
+   {{else}}
+
+    <div class="item">
+        <a href="/user/signup">
+            <div class="ui primary  button">Sign up</div>
+        </a>
+    </div>
+    <div class="item">
+        <a href="/user/signin">
+            <div class="ui button">Log-in</div>
+        </a>
+    </div>
+
+    <div class="item">
+        <a href="/api/postStorage">
+            <div class="left aligned orange button " style="font-size: 20px">Get favorites</div>
+        </a>
+    </div>
+    {{/if}}
+
+</div>
+
+
+
+
+
+<div class="main ui  text container">
+
+    <h1 class="ui dividing centered header">Welcome to portal</h1>
+    <a href="/createPost" class="ui button medium">CreatePost</a>
+
+
+
+<div class="ui unstackable items">
+
+<div class="content">
+    <div class="ui unstackable items">
+{{#each posts}}
+        <div class="item">
+            <div class="small image">
+                <img src="https://semantic-ui.com/images/wireframe/image.png">
+            </div>
+            <div class="middle aligned content">
+            <div class="header">
+                <a href="/posts/{{id}}">{{{subject}}}</a>
+            </div>
+
+
+                <div class="description">
+                    <div class="description">
+                    <p>{{{text}}}</p>
+                    </div>
+                </div>
+                <div class="extra">
+                    <p>{{date}}</p>
+                    <div class="ui right floated primary button">
+                        <a href="/add-to-favorite/{{{id}}}" style="color:whitesmoke">Add
+                        <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <hr>
+{{/each}}
+</div>
+</div>
+</div>
+</div>
+
+<script>
+</script>
+
+
+
+
+
