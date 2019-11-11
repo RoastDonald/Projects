@@ -7,6 +7,8 @@ const PostStorage = require('../models/PostStorage');
 
 
 
+
+
 module.exports = {
     homeHandler: (req, res) => {
         Posts.find().exec((err,posts)=>{
@@ -23,7 +25,9 @@ module.exports = {
                         subject:post.subject || '',
                         text:post.text || '',
                         id:post.id || i,
-                        date:post.date || ''
+                        date:post.date || '',
+                        imagePath:post.imagePath || 'https://semantic-ui.com/images/wireframe/image.png',
+                        isImage:post.imagePath !== ''
                     }
                 })
             };
@@ -34,15 +38,21 @@ module.exports = {
     },
 
     createPostGET: (req, res) => {
+
         res.render('layouts/createPostPage',{csrfToken:req.csrfToken()});
+    },
+
+    test:(req,res)=> {
+        res.render('layouts/test');
     },
 
 
 
 
 
-     createPostPOST: (req, res) => {
 
+
+     createPostPOST: (req, res) => {
          let context = req.body;
                         Posts.find((err, posts) => {
                      if (err) {
@@ -55,11 +65,25 @@ module.exports = {
 
 
 
+             let obj = {};
+             function PATH() {
+                 if (!req.file) {
+                     obj.id = ''
+                 } else {
+                     obj.id = req.file.filename;
+                 }
+             }
+
+                 let path = PATH();
+                console.log(path);
+             console.log(path);
+
                  Posts.create({
                      subject: context.subject,
                      text: context.message,
                      id: context.id,
-                     date:Date()
+                     date:Date(),
+                     imagePath: obj.id
                  }, (er, post) => {
                  if (er) throw new Error(er);
                  context._id = post._id;

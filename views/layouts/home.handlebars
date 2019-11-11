@@ -54,7 +54,13 @@
 {{#each posts}}
         <div class="item">
             <div class="small image">
-                <img src="https://semantic-ui.com/images/wireframe/image.png">
+                {{#if isImage}}
+                    <img src="{{imagePath}}">
+                {{else}}
+                    <img src="image/{{imagePath}}">
+
+                {{/if}}
+
             </div>
             <div class="middle aligned content">
             <div class="header">

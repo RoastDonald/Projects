@@ -1,4 +1,4 @@
-<form action="/createPost" class="inverted ui form" method="post">
+<form action="/createPost?_csrf={{csrfToken}}" class="inverted ui form" method="post" enctype="multipart/form-data">
     <div class="ui form">
         <div class="field">
             Subject
@@ -11,10 +11,20 @@
             <label for="two">Text</label>
             <textarea name="message" id="two"></textarea>
         </div>
-        <input type="hidden" name="_csrf" value="{{{csrfToken}}}">
+        <input type="file" name="file" (change)="fileEvent($event)" class="inputfile" id="embedpollfileinput" />
+
+
+        <label for="embedpollfileinput" class="ui huge red right floated button">
+            <i class="ui upload icon"></i>
+            Upload image
+        </label>
+
         <button class="ui button" type="submit">Submit</button>
     </div>
 </form>
+
+
+
 
 
 
